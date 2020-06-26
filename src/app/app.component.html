@@ -1,0 +1,31 @@
+<div style="text-align: center">
+  <img
+    src="../assets/logo.jpg"
+    alt="LCO logo"
+    width="300"
+    height="300"
+    class="logo"
+  />
+  <h1 class="app-title">Expense Management System</h1>
+</div>
+<div class="container">
+  Add your daily expense...
+  <br />
+  <input
+    type="text"
+    class="input-text"
+    placeholder="Type here"
+    [(ngModel)]="todoValue"
+    (keyup.enter)="addItem()"
+  />
+  <button class="add-btn" (click)="addItem()">Add expenses</button>
+  <div class="list">
+    <ul>
+      <li *ngFor="let item of list">
+        <input type="checkbox" name="isDone" [(ngModel)]="item.isDone" />
+        {{ item.value }}
+        <button class="btn" (click)="deleteItem(item.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>
